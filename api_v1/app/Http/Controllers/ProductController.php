@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Services\FileUploadController;
 use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Validation\ValidationException;
 
-class CategoryController extends Controller
+class ProductController extends Controller
 {
 
 
@@ -15,9 +17,9 @@ class CategoryController extends Controller
     {
         try {
 
-            $categories = Category::all();
+            $products = Product::paginate(12);
 
-            return response()->json($categories, Response::HTTP_OK);
+            return response()->json($products, Response::HTTP_OK);
         } catch (ValidationException $e) {
             return $this->handleValidationException($e);
         } catch (\Exception $e) {
@@ -28,12 +30,12 @@ class CategoryController extends Controller
     {
         try {
 
-            $category = Category::find($id);
-            if(!$category){
-                return response()->json(['message' => 'Category not found!'], Response::HTTP_NOT_FOUND);
+            $Product = Product::find($id);
+            if(!$Product){
+                return response()->json(['message' => 'Product not found!'], Response::HTTP_NOT_FOUND);
             }
 
-            return response()->json($category, Response::HTTP_OK);
+            return response()->json($Product, Response::HTTP_OK);
         } catch (ValidationException $e) {
             return $this->handleValidationException($e);
         } catch (\Exception $e) {
@@ -43,14 +45,20 @@ class CategoryController extends Controller
     public function create(Request $request)
     {
         try {
-
             $data = $request->validate([
                 'name' => 'required|min:3',
-                'description' => 'nullable|min:3'
+                'brand' => 'required',
+                'price' => 'required',
+                'description' => 'nullable|min:3',
+                'category_id' => 'exists:categories,id',
+                'image' => 'required'
             ]);
-
-            Category::create($data);
-
+            
+            $image = FileUploadController::storeImage($request->file('image'), 'uploads/products');
+            $data['image'] = $image;
+        
+            Product::create($data);
+            
             return response()->json( ['message' => 'Created successfully'],Response::HTTP_OK);
         } catch (ValidationException $e) {
             return $this->handleValidationException($e);
@@ -60,19 +68,33 @@ class CategoryController extends Controller
     }
     public function update(Request $request, string $id)
     {
+        // return $request->all();
         try {
 
             $data = $request->validate([
                 'name' => 'nullable|min:3',
-                'description' => 'nullable|min:3'
+                'brand' => 'nullable',
+                'price' => 'nullable',
+                'description' => 'nullable|min:3',
+                'category_id' => 'exists:categories,id',
+                'image' => 'nullable|image'
             ]);
 
-            $category = Category::find($id);
-            if(!$category){
-                return response()->json(['message' => 'Category not found!'], Response::HTTP_NOT_FOUND);
+
+            $product = Product::find($id);
+            if(!$product){
+                return response()->json(['message' => 'product not found!'], Response::HTTP_NOT_FOUND);
             }
 
-            $category->update($data);
+            // Check if an image file has been uploaded
+        if ($request->hasFile('image')) {
+            $image = FileUploadController::storeImage($request->file('image'), 'uploads/products');
+            if ($image) {
+                $data['image'] = $image;
+            }
+        }
+
+            $product->update($data);
 
             return response()->json( ['message' => 'Updated successfully'],Response::HTTP_OK);
         } catch (ValidationException $e) {
@@ -85,12 +107,12 @@ class CategoryController extends Controller
     {
         try {
 
-            $category = Category::find($id);
-            if(!$category){
-                return response()->json(['message' => 'Category not found!'], Response::HTTP_NOT_FOUND);
+            $product = Product::find($id);
+            if(!$product){
+                return response()->json(['message' => 'product not found!'], Response::HTTP_NOT_FOUND);
             }
 
-            $category->delete();
+            $product->delete();
 
             return response()->json( ['message' => 'Deleted successfully'],Response::HTTP_OK);
         } catch (ValidationException $e) {

@@ -13,8 +13,16 @@ class Authorization
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next): Response
+    public function handle($request, Closure $next, ...$roles)
     {
-        return $next($request);
+        if (auth()->check()) {
+            $role_id = auth()->user()->role_id;
+            // check permissions
+            if (in_array($role_id, $roles)) { 
+                return $next($request);
+            }
+        }
+
+        return response()->json(["error" => 'Unauthorized'], Response::HTTP_UNAUTHORIZED);
     }
 }
