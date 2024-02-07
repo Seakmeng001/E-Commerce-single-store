@@ -49,6 +49,7 @@ class ProductController extends Controller
                 'name' => 'required|min:3',
                 'brand' => 'required',
                 'price' => 'required',
+                'discount' => 'nullable',
                 'description' => 'nullable|min:3',
                 'category_id' => 'exists:categories,id',
                 'image' => 'required'
@@ -75,6 +76,7 @@ class ProductController extends Controller
                 'name' => 'nullable|min:3',
                 'brand' => 'nullable',
                 'price' => 'nullable',
+                'discount' => 'nullable',
                 'description' => 'nullable|min:3',
                 'category_id' => 'exists:categories,id',
                 'image' => 'nullable|image'

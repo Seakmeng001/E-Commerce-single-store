@@ -18,14 +18,14 @@
                         <p>
                           Welcome to our skin care sanctuary! We're thrilled to have you here. We understand that taking care of your skin is more than just a routine—it's a journey towards confidence and self-care. Whether you're seeking solutions for specific concerns or simply looking to enhance your natural radiance, our curated collection of premium skincare products awaits you. Dive into a world of rejuvenation and indulgence, where each product is crafted with the finest ingredients and backed by cutting-edge research. Our mission is to empower you to embrace your unique beauty and glow from within. Explore our range, and let us guide you on your path to luminous, healthy skin. Welcome to a skincare experience like no other!
                         </p>
-                        <a href="">
+                        <router-link to="/contact">
                           Contact Us
-                        </a>
+                        </router-link>
                       </div>
                     </div>
                     <div class="col-md-5 ">
                       <div class="img-box">
-                        <img src="#" alt="" />
+                        <img :src="banner" alt="" />
                       </div>
                     </div>
                   </div>
@@ -42,14 +42,14 @@
                         <p>
                           Welcome to our skin care sanctuary! We're thrilled to have you here. We understand that taking care of your skin is more than just a routine—it's a journey towards confidence and self-care. Whether you're seeking solutions for specific concerns or simply looking to enhance your natural radiance, our curated collection of premium skincare products awaits you. Dive into a world of rejuvenation and indulgence, where each product is crafted with the finest ingredients and backed by cutting-edge research. Our mission is to empower you to embrace your unique beauty and glow from within. Explore our range, and let us guide you on your path to luminous, healthy skin. Welcome to a skincare experience like no other!
                         </p>
-                        <a href="">
+                        <router-link to="/contact">
                           Contact Us
-                        </a>
+                        </router-link>
                       </div>
                     </div>
                     <div class="col-md-5 ">
                       <div class="img-box">
-                        <img src="#" alt="" />
+                        <img :src="image" alt="" />
                       </div>
                     </div>
                   </div>
@@ -66,9 +66,9 @@
                         <p>
                           Welcome to our skin care sanctuary! We're thrilled to have you here. We understand that taking care of your skin is more than just a routine—it's a journey towards confidence and self-care. Whether you're seeking solutions for specific concerns or simply looking to enhance your natural radiance, our curated collection of premium skincare products awaits you. Dive into a world of rejuvenation and indulgence, where each product is crafted with the finest ingredients and backed by cutting-edge research. Our mission is to empower you to embrace your unique beauty and glow from within. Explore our range, and let us guide you on your path to luminous, healthy skin. Welcome to a skincare experience like no other!
                         </p>
-                        <a href="">
+                        <router-link to="/contact">
                           Contact Us
-                        </a>
+                        </router-link>
                       </div>
                     </div>
                     <div class="col-md-5 ">
@@ -137,9 +137,9 @@
           
         </div>
         <div class="btn-box">
-          <a href="">
+          <router-link to="/shop">
             View All Products
-          </a>
+          </router-link>
         </div>
       </div>
     </section>
@@ -149,7 +149,7 @@
     <!-- saving section -->
   
     <section class="saving_section ">
-      <div class="box">
+      <div class="box pb-5">
         <div class="container-fluid">
           <div class="row">
             <div class="col-lg-6">
@@ -169,14 +169,6 @@
                   At our shop, we prioritize providing exceptional service alongside our premium skincare products. Our knowledgeable team is dedicated to supporting you throughout your skincare journey, offering personalized recommendations, tips, and assistance. We strive to leave you feeling valued and empowered after every interaction, with prompt shipping, hassle-free returns, and responsive customer support ensuring a seamless and enjoyable experience. Trust us to be your partner in achieving radiant, healthy skin, as we exceed your expectations with our exceptional service at every turn.
 
                 </p>
-                <div class="btn-box">
-                  <a href="#" class="btn1">
-                    Buy Now
-                  </a>
-                  <a href="#" class="btn2">
-                    See More
-                  </a>
-                </div>
               </div>
             </div>
           </div>
@@ -209,7 +201,8 @@
                    c0.008,0,0.015-0.001,0.022-0.001c11.637,0.008,21.518,7.646,24.912,18.171h-24.928c-4.427,0-8.017,3.589-8.017,8.017v17.102
                    c0,13.851,11.268,25.119,25.119,25.119h9.086v35.273h-20.962c-6.886-19.883-25.787-34.205-47.982-34.205
                    s-41.097,14.322-47.982,34.205h-3.86v-60.393c0-4.427-3.589-8.017-8.017-8.017c-4.427,0-8.017,3.589-8.017,8.017v60.391H192.817
-                   c-6.886-19.883-25.787-34.205-47.982-34.205s-41.097,14.322-47.982,34.205H50.772c-0.295,0-0.534-0.239-0.534-0.534v-17.637
+                   c-
+                   6.886-19.883-25.787-34.205-47.982-34.205s-41.097,14.322-47.982,34.205H50.772c-0.295,0-0.534-0.239-0.534-0.534v-17.637
                    h34.739c4.427,0,8.017-3.589,8.017-8.017s-3.589-8.017-8.017-8.017H8.017c-4.427,0-8.017,3.589-8.017,8.017
                    s3.589,8.017,8.017,8.017h26.188v17.637c0,9.136,7.432,16.568,16.568,16.568h43.304c-0.002,0.178-0.014,0.355-0.014,0.534
                    c0,27.996,22.777,50.772,50.772,50.772s50.772-22.776,50.772-50.772c0-0.18-0.012-0.356-0.014-0.534h180.67
@@ -451,7 +444,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-7">
+            <div class="col-md-7 my-5">
               <div class="detail-box">
                 <div class="heading_container">
                   <h2>
@@ -462,14 +455,6 @@
                 <p>
                   Omnis ex nam laudantium odit illum harum, excepturi accusamus at corrupti, velit blanditiis unde perspiciatis, vitae minus culpa? Beatae at aut consequuntur porro adipisci aliquam eaque iste ducimus expedita accusantium?
                 </p>
-                <div class="btn-box">
-                  <a href="#" class="btn1">
-                    Buy Now
-                  </a>
-                  <a href="#" class="btn2">
-                    See More
-                  </a>
-                </div>
               </div>
             </div>
           </div>
@@ -496,7 +481,7 @@
           <div class="col-lg-7 col-md-6 px-0">
             <div class="map_container">
               <div class="map-responsive">
-                <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&q=Eiffel+Tower+Paris+France" width="600" height="300" frameborder="0" style="border:0; width: 100%; height:100%" allowfullscreen></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3909.051102949234!2d104.93028777481693!3d11.54819198865142!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3109512ead29fd23%3A0xc59039af9a79d1d9!2sAEON%20Mall%20Phnom%20Penh!5e0!3m2!1sen!2skh!4v1707304021966!5m2!1sen!2skh" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
               </div>
             </div>
           </div>
@@ -533,9 +518,13 @@
 
 <script>
 import fetchData from "../services/fetchData.js";
+import banner from "../assets/images/background.png";
+import image from "../assets/images/hello.png";
 export default {
     data(){
         return{
+          banner: banner,
+          image:image,
             products: []
         }
     },

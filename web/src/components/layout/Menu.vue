@@ -4,7 +4,7 @@
     <header class="header_section">
       <nav class="navbar navbar-expand-lg custom_nav-container">
         <a class="navbar-brand" href="index.html">
-          <span> Giftos </span>
+          <span> Beauty Store </span>
         </a>
         <button
           class="navbar-toggler"
@@ -20,20 +20,17 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav">
-            <li class="nav-item">
-              <router-link to="/" class="nav-link"> Home </router-link>
+            <li class="nav-item" :class="{ active: isActive('/') }">
+              <router-link to="/" class="nav-link" > Home </router-link>
             </li>
-            <li class="nav-item">
+            <li class="nav-item" :class="{ active: isActive('/shop') }">
               <router-link to="/shop" class="nav-link"> Shop </router-link>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="why.html"> Why Us </a>
+            <li class="nav-item" :class="{ active: isActive('/promotion') }">
+              <router-link to="/promotion" class="nav-link"> Promotion </router-link>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="testimonial.html"> Testimonial </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contact.html">Contact Us</a>
+            <li class="nav-item" :class="{ active: isActive('/contact') }">
+              <router-link to="/contact" class="nav-link">Contact Us</router-link>
             </li>
           </ul>
           <div class="user_option">
@@ -42,16 +39,11 @@
               <span> Login </span>
             </router-link>
             <span v-else style="margin-end:12px">
-              {{ isLogin }}
+              <span>{{ isLogin }}</span> <span @click="logout()" class="text-secondary" style="cursor: pointer;;">Logout</span>
             </span>
-            <a href="">
+            <router-link to="/cart">
               <i class="fa fa-shopping-bag" aria-hidden="true"></i>
-            </a>
-            <form class="form-inline">
-              <button class="btn nav_search-btn" type="submit">
-                <i class="fa fa-search" aria-hidden="true"></i>
-              </button>
-            </form>
+            </router-link>
           </div>
         </div>
       </nav>
@@ -155,6 +147,16 @@ export default {
     '$route': function() {
       this.isLogin = localStorage.getItem('name');
     }
-  }
+  },
+  methods: {
+    isActive(path) {
+      return this.$route.path === path;
+    },
+    logout() {
+      localStorage.removeItem('name');
+      localStorage.removeItem('token');
+      window.location.reload();
+    },
+  },
 };
 </script>
