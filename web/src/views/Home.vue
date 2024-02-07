@@ -25,7 +25,7 @@
                     </div>
                     <div class="col-md-5 ">
                       <div class="img-box">
-                        <img :src="banner" alt="" />
+                        <img :src="banner1" alt="" />
                       </div>
                     </div>
                   </div>
@@ -519,12 +519,12 @@
 <script>
 import fetchData from "../services/fetchData.js";
 import banner from "../assets/images/background.png";
-import image from "../assets/images/hello.png";
+import banner1 from "../assets/images/banner1.png";
 export default {
     data(){
         return{
           banner: banner,
-          image:image,
+          banner1:banner1,
             products: []
         }
     },
