@@ -13,7 +13,7 @@
                     <div class="col-md-7">
                       <div class="detail-box">
                         <h1>
-                         Welcome to our shop
+                         Welcome to Beauty Store
                         </h1>
                         <p>
                           Welcome to our skin care sanctuary! We're thrilled to have you here. We understand that taking care of your skin is more than just a routine—it's a journey towards confidence and self-care. Whether you're seeking solutions for specific concerns or simply looking to enhance your natural radiance, our curated collection of premium skincare products awaits you. Dive into a world of rejuvenation and indulgence, where each product is crafted with the finest ingredients and backed by cutting-edge research. Our mission is to empower you to embrace your unique beauty and glow from within. Explore our range, and let us guide you on your path to luminous, healthy skin. Welcome to a skincare experience like no other!
@@ -25,7 +25,7 @@
                     </div>
                     <div class="col-md-5 ">
                       <div class="img-box">
-                        <img :src="banner1" alt="" />
+                        <img :src="CE_Banner" alt="" class="big-image" style="width:550px;position: relative; top: 20px;"/>
                       </div>
                     </div>
                   </div>
@@ -37,7 +37,7 @@
                     <div class="col-md-7">
                       <div class="detail-box">
                         <h1>
-                          Welcome to our shop
+                          Welcome to Beauty Store
                         </h1>
                         <p>
                           Welcome to our skin care sanctuary! We're thrilled to have you here. We understand that taking care of your skin is more than just a routine—it's a journey towards confidence and self-care. Whether you're seeking solutions for specific concerns or simply looking to enhance your natural radiance, our curated collection of premium skincare products awaits you. Dive into a world of rejuvenation and indulgence, where each product is crafted with the finest ingredients and backed by cutting-edge research. Our mission is to empower you to embrace your unique beauty and glow from within. Explore our range, and let us guide you on your path to luminous, healthy skin. Welcome to a skincare experience like no other!
@@ -49,7 +49,7 @@
                     </div>
                     <div class="col-md-5 ">
                       <div class="img-box">
-                        <img :src="image" alt="" />
+                        <img :src="Set" alt="" class="big-image" style="width:550px;position: relative; top: 20px;"/>
                       </div>
                     </div>
                   </div>
@@ -61,7 +61,7 @@
                     <div class="col-md-7">
                       <div class="detail-box">
                         <h1>
-                          Welcome to our shop
+                          Welcome to our Beauty Store
                         </h1>
                         <p>
                           Welcome to our skin care sanctuary! We're thrilled to have you here. We understand that taking care of your skin is more than just a routine—it's a journey towards confidence and self-care. Whether you're seeking solutions for specific concerns or simply looking to enhance your natural radiance, our curated collection of premium skincare products awaits you. Dive into a world of rejuvenation and indulgence, where each product is crafted with the finest ingredients and backed by cutting-edge research. Our mission is to empower you to embrace your unique beauty and glow from within. Explore our range, and let us guide you on your path to luminous, healthy skin. Welcome to a skincare experience like no other!
@@ -73,7 +73,7 @@
                     </div>
                     <div class="col-md-5 ">
                       <div class="img-box">
-                        <img src="#" alt="" />
+                        <img :src="Pg" alt="" class="big-image" style="width:550px;position: relative; top: 20px;"/>
                       </div>
                     </div>
                   </div>
@@ -154,7 +154,7 @@
           <div class="row">
             <div class="col-lg-6">
               <div class="img-box">
-                <img src="#" alt="">
+                <img :src="Saving" alt="">
               </div>
             </div>
             <div class="col-lg-6">
@@ -283,7 +283,7 @@
                   Fast Delivery
                 </h5>
                 <p>
-                  variations of passages of Lorem Ipsum available
+                 Faster and get good products 
                 </p>
               </div>
             </div>
@@ -398,7 +398,7 @@
                   Free Shiping
                 </h5>
                 <p>
-                  variations of passages of Lorem Ipsum available
+                  Free delivery and best products
                 </p>
               </div>
             </div>
@@ -419,7 +419,7 @@
                   Best Quality
                 </h5>
                 <p>
-                  variations of passages of Lorem Ipsum available
+                  Good product and new arrival
                 </p>
               </div>
             </div>
@@ -434,7 +434,7 @@
     <!-- gift section -->
   
     <section class="gift_section layout_padding-bottom">
-      <div class="box ">
+      <!-- <div class="box ">
         <div class="container-fluid">
           <div class="row">
             <div class="col-md-5">
@@ -459,7 +459,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </section>
   
   
@@ -519,12 +519,19 @@
 <script>
 import fetchData from "../services/fetchData.js";
 import banner from "../assets/images/background.png";
-import banner1 from "../assets/images/banner1.png";
+import CE_Banner from "../assets/images/CE_Banner.png";
+import Set from "../assets/images/Set.png";
+import Pg from "../assets/images/Pg.png";
+import Saving from "../assets/images/Saving.png";
 export default {
+  name:"Home",
     data(){
         return{
           banner: banner,
-          banner1:banner1,
+          CE_Banner:CE_Banner,
+          Set:Set,
+          Pg:Pg,
+          Saving:Saving,
             products: []
         }
     },
@@ -546,5 +553,7 @@ export default {
     }
 }
 </script>
+
+
 
   
